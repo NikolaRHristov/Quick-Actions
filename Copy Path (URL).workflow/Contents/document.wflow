@@ -205,9 +205,9 @@ fi | pbcopy
 	<key>workflowMetaData</key>
 	<dict>
 		<key>workflowTypeIdentifier</key>
-		<string>com.apple.Automator.workflow</string>
+		<string>com.apple.Automator.servicesMenu</string>
 	</dict>
 	<key>workflowType</key>
-	<integer>2</integer>
+	<integer>1</integer>
 </dict>
 </plist>
