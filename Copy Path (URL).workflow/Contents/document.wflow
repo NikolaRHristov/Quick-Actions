@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AMApplicationBuild</key>
+	<string>307</string>
+	<key>AMApplicationVersion</key>
+	<string>2.2</string>
+	<key>actions</key>
+	<array>
+		<dict>
+			<key>action</key>
+			<dict>
+				<key>AMAccepts</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Optional</key>
+					<false/>
+					<key>Types</key>
+					<array>
+						<string>com.apple.cocoa.path</string>
+					</array>
+				</dict>
+				<key>AMActionVersion</key>
+				<string>1.0</string>
+				<key>AMProvides</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Types</key>
+					<array>
+						<string>com.apple.cocoa.string</string>
+					</array>
+				</dict>
+				<key>AMRequiredResources</key>
+				<array/>
+				<key>ActionBundlePath</key>
+				<string>/System/Library/Automator/Run Shell Script.action</string>
+				<key>ActionName</key>
+				<string>Run Shell Script</string>
+				<key>ActionParameters</key>
+				<dict>
+					<key>COMMAND_STRING</key>
+					<string>#!/bin/bash
+# Copy file:// URL(s) (percent-encoded) of selected Finder item(s).
+urlenc() {
+    local s="$1" i c hex result=""
+    for ((i=0; i&lt;${#s}; i++)); do
+        c="${s:i:1}"
+        case "$c" in
+            [a-zA-Z0-9._~-]) result+="$c" ;;
+            *) printf -v hex '%%%02X' "'$c"; result+="$hex" ;;
+        esac
+    done
+    printf '%s' "$result"
+}
+first=1
+emit() { local u="file://$(urlenc "$1")"; if [ "$first" -eq 1 ]; then printf '%s' "$u"; first=0; else printf '\n%s' "$u"; fi; }
+if [ "$#" -gt 0 ]; then
+    for f in "$@"; do emit "$f"; done
+else
+    while IFS= read -r f; do [ -z "$f" ] &amp;&amp; continue; emit "$f"; done
+fi | pbcopy
+</string>
+					<key>CheckedForUserDefaultShell</key>
+					<false/>
+					<key>inputMethod</key>
+					<integer>1</integer>
+					<key>shell</key>
+					<string>/bin/bash</string>
+					<key>source</key>
+					<string></string>
+				</dict>
+				<key>BundleIdentifier</key>
+				<string>com.apple.RunShellScript</string>
+				<key>CanShowWhenRun</key>
+				<false/>
+				<key>Class Name</key>
+				<string>Run_Shell_Script</string>
+				<key>InputUUID</key>
+				<string>3b572297-7ef8-419c-8338-b3d590e5b1d5</string>
+				<key>OutputUUID</key>
+				<string>225b6a25-3d2a-4e56-bc09-5dd8b30dcdbf</string>
+				<key>UUID</key>
+				<string>0a2fe6c2-69c4-4333-9c5d-c6effb87f042</string>
+				<key>isViewVisible</key>
+				<false/>
+			</dict>
+			<key>isViewVisible</key>
+			<false/>
+		</dict>
+	</array>
+	<key>workflowType</key>
+	<integer>2</integer>
+</dict>
+</plist>

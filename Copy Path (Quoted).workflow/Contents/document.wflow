@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AMApplicationBuild</key>
+	<string>307</string>
+	<key>AMApplicationVersion</key>
+	<string>2.2</string>
+	<key>actions</key>
+	<array>
+		<dict>
+			<key>action</key>
+			<dict>
+				<key>AMAccepts</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Optional</key>
+					<false/>
+					<key>Types</key>
+					<array>
+						<string>com.apple.cocoa.path</string>
+					</array>
+				</dict>
+				<key>AMActionVersion</key>
+				<string>1.0</string>
+				<key>AMProvides</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Types</key>
+					<array>
+						<string>com.apple.cocoa.string</string>
+					</array>
+				</dict>
+				<key>AMRequiredResources</key>
+				<array/>
+				<key>ActionBundlePath</key>
+				<string>/System/Library/Automator/Run Shell Script.action</string>
+				<key>ActionName</key>
+				<string>Run Shell Script</string>
+				<key>ActionParameters</key>
+				<dict>
+					<key>COMMAND_STRING</key>
+					<string>#!/bin/bash
+# Copy shell-safe (printf %q) path(s) of selected Finder item(s).
+first=1
+emit() { if [ "$first" -eq 1 ]; then printf '%q' "$1"; first=0; else printf '\n%q' "$1"; fi; }
+if [ "$#" -gt 0 ]; then
+    for f in "$@"; do emit "$f"; done
+else
+    while IFS= read -r f; do [ -z "$f" ] &amp;&amp; continue; emit "$f"; done
+fi | pbcopy
+</string>
+					<key>CheckedForUserDefaultShell</key>
+					<false/>
+					<key>inputMethod</key>
+					<integer>1</integer>
+					<key>shell</key>
+					<string>/bin/bash</string>
+					<key>source</key>
+					<string></string>
+				</dict>
+				<key>BundleIdentifier</key>
+				<string>com.apple.RunShellScript</string>
+				<key>CanShowWhenRun</key>
+				<false/>
+				<key>Class Name</key>
+				<string>Run_Shell_Script</string>
+				<key>InputUUID</key>
+				<string>083c42b7-e323-4f53-9b03-31fc47dc6b87</string>
+				<key>OutputUUID</key>
+				<string>262a068e-d45b-47f9-904e-5720555ab8e1</string>
+				<key>UUID</key>
+				<string>c5764557-15c9-4b58-b5ee-4fcf35ef90cf</string>
+				<key>isViewVisible</key>
+				<false/>
+			</dict>
+			<key>isViewVisible</key>
+			<false/>
+		</dict>
+	</array>
+	<key>workflowType</key>
+	<integer>2</integer>
+</dict>
+</plist>
