@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en_US</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.user.copyPath.url</string>
+	<string>org.example.copyPath.url</string>
 	<key>CFBundleName</key>
 	<string>Copy Path (URL)</string>
 	<key>CFBundleShortVersionString</key>
