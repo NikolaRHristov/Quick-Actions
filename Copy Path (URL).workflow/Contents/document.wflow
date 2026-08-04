@@ -59,10 +59,28 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>COMMAND_STRING</key>
-					<string>for f in "$@"; do
-  encoded=$(python3 -c "import urllib.parse, sys; print('file://' + urllib.parse.quote(sys.argv[1], safe='/'))" "$f")
-  printf '%s\n' "$encoded"
-done | pbcopy</string>
+					<string>urlenc() {
+    local s="$1" i c hex out=""
+    for (( i = 0; i < ${#s}; i++ )); do
+        c="${s:i:1}"
+        case "$c" in
+            [a-zA-Z0-9._~/-]) out+="$c" ;;
+            *) printf -v hex '%%%02X' "'$c"; out+="$hex" ;;
+        esac
+    done
+    printf '%s' "$out"
+}
+
+if [ "$#" -gt 0 ]; then
+    for f in "$@"; do
+        printf 'file://%s\n' "$(urlenc "$f")"
+    done
+else
+    while IFS= read -r f; do
+        [ -z "$f" ] &amp;&amp; continue
+        printf 'file://%s\n' "$(urlenc "$f")"
+    done
+fi | pbcopy</string>
 					<key>CheckedForUserDefaultShell</key>
 					<true/>
 					<key>inputMethod</key>
