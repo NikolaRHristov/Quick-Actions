@@ -1,7 +1,13 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/platform-macOS-000000?logo=apple&logoColor=white" alt="Platform: macOS">
-  <img src="https://img.shields.io/badge/built%20with-Automator%20%2F%20zsh-555555" alt="Built with Automator and zsh">
-  <img src="https://img.shields.io/badge/license-Custom-2ea44f" alt="License: Custom">
+  <a href="https://GitHub.Com/NikolaRHristov/QuickActions">
+    <img src="https://img.shields.io/static/v1?label=platform&message=macOS&color=000000&logo=apple&logoColor=white" alt="Platform: macOS">
+  </a>
+  <a href="https://GitHub.Com/NikolaRHristov/QuickActions">
+    <img src="https://img.shields.io/static/v1?label=built%20with&message=Automator%20%2F%20zsh&color=555555" alt="Built with Automator and zsh">
+  </a>
+  <a href="LICENSE">
+    <img src="https://img.shields.io/static/v1?label=license&message=CC0%201.0&color=2ea44f" alt="License: CC0 1.0">
+  </a>
 </p>
 
 # [Quick Actions] 📋
@@ -18,26 +24,25 @@ them (`$@` / stdin paths), so they work for anyone on any Mac.
 
 > **Note**
 >
-> The actions copy the *path* - not the file contents. Great for pasting into a
+> The actions copy the _path_ - not the file contents. Great for pasting into a
 > terminal, a chat, or a document without dragging a file around.
 
 ## Included Actions 🧩
 
-| Action | What it copies | Example output |
-| --- | --- | --- |
-| **Copy Path** | Raw absolute path | `/Users/you/Projects/foo/bar.txt` |
+| Action                 | What it copies                 | Example output                                  |
+| ---------------------- | ------------------------------ | ----------------------------------------------- |
+| **Copy Path**          | Raw absolute path              | `/Users/you/Projects/foo/bar.txt`               |
 | **Copy Path (Quoted)** | `printf %q`-quoted, shell-safe | `/Users/you/Projects/foo/bar\ with\ spaces.txt` |
-| **Copy Path (URL)** | `file://` URL, percent-encoded | `file:///Users/you/Projects/foo/bar.txt` |
+| **Copy Path (URL)**    | `file://` URL, percent-encoded | `file:///Users/you/Projects/foo/bar.txt`        |
 
 All three handle **multiple** selected items, joined by newlines.
 
 ## Installation 🚀
 
-> [!WARNING]
-> **Do NOT double-click or drag the `.workflow` files onto Automator to install.**
-> Opening a workflow in Automator causes it to re-save itself and strips the
-> critical service metadata, breaking it. Always install by copying with `cp -R`
-> as shown below.
+> [!WARNING] **Do NOT double-click or drag the `.workflow` files onto Automator
+> to install.** Opening a workflow in Automator causes it to re-save itself and
+> strips the critical service metadata, breaking it. Always install by copying
+> with `cp -R` as shown below.
 
 **Clone and copy:**
 
@@ -46,9 +51,9 @@ git clone https://github.com/NikolaRHristov/QuickActions.git
 cd QuickActions
 
 cp -R "Copy Path.workflow" \
-      "Copy Path (Quoted).workflow" \
-      "Copy Path (URL).workflow" \
-      ~/Library/Services/
+	"Copy Path (Quoted).workflow" \
+	"Copy Path (URL).workflow" \
+	~/Library/Services/
 ```
 
 Then force macOS to re-register the new Services and restart Finder:
@@ -67,13 +72,13 @@ so macOS doesn't cache the stale versions:
 
 ```sh
 rm -rf ~/Library/Services/"Copy Path.workflow" \
-       ~/Library/Services/"Copy Path (Quoted).workflow" \
-       ~/Library/Services/"Copy Path (URL).workflow"
+	~/Library/Services/"Copy Path (Quoted).workflow" \
+	~/Library/Services/"Copy Path (URL).workflow"
 
 cp -R "Copy Path.workflow" \
-      "Copy Path (Quoted).workflow" \
-      "Copy Path (URL).workflow" \
-      ~/Library/Services/
+	"Copy Path (Quoted).workflow" \
+	"Copy Path (URL).workflow" \
+	~/Library/Services/
 
 /System/Library/CoreServices/pbs -update && killall Finder
 ```
@@ -81,15 +86,15 @@ cp -R "Copy Path.workflow" \
 ## Usage 🖱️
 
 1. In **Finder**, select one or more files or folders.
-2. **Right-click → Quick Actions** (macOS Ventura and later) or
-   **Right-click → Services** (older macOS) → pick **Copy Path**,
-   **Copy Path (Quoted)**, or **Copy Path (URL)**.
+2. **Right-click → Quick Actions** (macOS Ventura and later) or **Right-click →
+   Services** (older macOS) → pick **Copy Path**, **Copy Path (Quoted)**, or
+   **Copy Path (URL)**.
 3. The result is now on your clipboard - paste it anywhere with `Cmd+V`.
 
 ### Keyboard shortcut (optional) ⌨️
 
-**System Settings → Keyboard → Keyboard Shortcuts… → Services →
-Files and Folders** and assign a shortcut to each action (e.g. `Cmd+Shift+C`).
+**System Settings → Keyboard → Keyboard Shortcuts… → Services → Files and
+Folders** and assign a shortcut to each action (e.g. `Cmd+Shift+C`).
 
 ## Troubleshooting 🛠️
 
@@ -98,8 +103,8 @@ If the actions don't appear in the context menu after installing:
 1. Make sure the workflows are in **`~/Library/Services/`** - not
    `~/Library/Automator/` or anywhere else.
 2. Run the `pbs -update && killall Finder` command above again.
-3. Go to **System Settings → Keyboard → Keyboard Shortcuts → Services →
-   Files and Folders** and make sure all three checkboxes are **ticked**.
+3. Go to **System Settings → Keyboard → Keyboard Shortcuts → Services → Files
+   and Folders** and make sure all three checkboxes are **ticked**.
 4. If they still don't appear, log out and back in - a full session restart
    flushes the Services cache more thoroughly than `killall Finder`.
 
@@ -110,8 +115,8 @@ If the actions don't appear in the context menu after installing:
 
 ## Contributing 🤝
 
-Contributions are welcome! This project follows the
-[Contributor Covenant][contributor-covenant] Code of Conduct - see
+Contributions are welcome! This project follows the [Contributor
+Covenant][contributor-covenant] Code of Conduct - see
 [`CONTRIBUTING.md`](CONTRIBUTING.md) for the full pledge, standards, and
 enforcement guidelines.
 
