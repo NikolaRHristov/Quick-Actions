@@ -39,12 +39,13 @@ All three handle **multiple** selected items, joined by newlines.
 
 ## Installation 🚀
 
-> [!WARNING] **Don't double-click the `.workflow` files to install them.**
-> Double-clicking installs the action, but it _moves_ the file out of this
-> folder into `~/Library/Services/`, so the copy in your project disappears -
-> and if you later `git pull` and reinstall, you have no local source to copy
-> from. Always install with `cp -R` as shown below, which leaves the originals
-> untouched.
+> **Warning**
+>
+> Don't double-click the `.workflow` files to install them. Double-clicking
+> installs the action, but it _moves_ the file out of this folder into
+> `~/Library/Services/`, so the copy in your project disappears - and if you
+> later `git pull` and reinstall, you have no local source to copy from. Always
+> install with `cp -R` as shown below, which leaves the originals untouched.
 
 **`Terminal`**
 
