@@ -10,7 +10,7 @@
   </a>
 </p>
 
-# [Quick Actions] 📋
+# [Quick Actions] 📋
 
 A small set of macOS **Automator Quick Actions** (Finder Services) that copy the
 path of the selected file or folder to the clipboard.
@@ -27,7 +27,7 @@ them (`$@` / stdin paths), so they work for anyone on any Mac.
 > The actions copy the _path_ - not the file contents. Great for pasting into a
 > terminal, a chat, or a document without dragging a file around.
 
-## Included Actions 🧩
+## Included Actions 🧩
 
 | Action                 | What it copies                 | Example output                                  |
 | ---------------------- | ------------------------------ | ----------------------------------------------- |
@@ -37,14 +37,16 @@ them (`$@` / stdin paths), so they work for anyone on any Mac.
 
 All three handle **multiple** selected items, joined by newlines.
 
-## Installation 🚀
+## Installation 🚀
 
-> [!WARNING] **Do NOT double-click or drag the `.workflow` files onto Automator
-> to install.** Opening a workflow in Automator causes it to re-save itself and
-> strips the critical service metadata, breaking it. Always install by copying
-> with `cp -R` as shown below.
+> [!WARNING] **Don't double-click the `.workflow` files to install them.**
+> Double-clicking installs the action, but it _moves_ the file out of this
+> folder into `~/Library/Services/`, so the copy in your project disappears -
+> and if you later `git pull` and reinstall, you have no local source to copy
+> from. Always install with `cp -R` as shown below, which leaves the originals
+> untouched.
 
-**Clone and copy:**
+**`Terminal`**
 
 ```sh
 git clone https://github.com/NikolaRHristov/QuickActions.git
@@ -58,6 +60,8 @@ cp -R "Copy Path.workflow" \
 
 Then force macOS to re-register the new Services and restart Finder:
 
+**`Terminal`**
+
 ```sh
 /System/Library/CoreServices/pbs -update && killall Finder
 ```
@@ -65,10 +69,12 @@ Then force macOS to re-register the new Services and restart Finder:
 After Finder relaunches the three actions will appear in the right-click menu
 under **Quick Actions** (macOS Ventura+) or **Services** (older macOS).
 
-### Updating / re-installing 🔄
+### Updating / re-installing 🔄
 
 If you need to reinstall (e.g. after a `git pull`), remove the old copies first
 so macOS doesn't cache the stale versions:
+
+**`Terminal`**
 
 ```sh
 rm -rf ~/Library/Services/"Copy Path.workflow" \
@@ -83,7 +89,7 @@ cp -R "Copy Path.workflow" \
 /System/Library/CoreServices/pbs -update && killall Finder
 ```
 
-## Usage 🖱️
+## Usage 🖱️
 
 1. In **Finder**, select one or more files or folders.
 2. **Right-click → Quick Actions** (macOS Ventura and later) or **Right-click →
@@ -91,12 +97,12 @@ cp -R "Copy Path.workflow" \
    **Copy Path (URL)**.
 3. The result is now on your clipboard - paste it anywhere with `Cmd+V`.
 
-### Keyboard shortcut (optional) ⌨️
+### Keyboard shortcut (optional) ⌨️
 
 **System Settings → Keyboard → Keyboard Shortcuts… → Services → Files and
 Folders** and assign a shortcut to each action (e.g. `Cmd+Shift+C`).
 
-## Troubleshooting 🛠️
+## Troubleshooting 🛠️
 
 If the actions don't appear in the context menu after installing:
 
@@ -108,23 +114,24 @@ If the actions don't appear in the context menu after installing:
 4. If they still don't appear, log out and back in - a full session restart
    flushes the Services cache more thoroughly than `killall Finder`.
 
-## Requirements 💻
+## Requirements 💻
 
 - macOS with Automator (all modern releases).
 - The embedded scripts run under `/bin/zsh`.
 
-## Contributing 🤝
+## Contributing 🤝
 
 Contributions are welcome! This project follows the [Contributor
 Covenant][contributor-covenant] Code of Conduct - see
 [`CONTRIBUTING.md`](CONTRIBUTING.md) for the full pledge, standards, and
 enforcement guidelines.
 
-## License 📜
+## License 📜
 
 Released under the **CC0 1.0 Universal** public domain dedication. See the
 [`LICENSE`](LICENSE) file for the full text - you may use, modify, and
 redistribute these workflows freely, including for commercial purposes, with no
 attribution required.
 
+[Quick Actions]: HTTPS://GitHub.Com/NikolaRHristov/QuickActions
 [contributor-covenant]: HTTPS://www.contributor-covenant.org
