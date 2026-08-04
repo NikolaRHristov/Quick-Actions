@@ -22,8 +22,7 @@ them (`$@` / stdin paths), so they work for anyone on any Mac.
   <img src="Screenshot.png" alt="Finder's right-click menu showing the Copy Path, Copy Path (Quoted), and Copy Path (URL) Quick Actions" width="720">
 </p>
 
-> **Note**
->
+> [!NOTE]
 > The actions copy the _path_ - not the file contents. Great for pasting into a
 > terminal, a chat, or a document without dragging a file around.
 
@@ -39,9 +38,8 @@ All three handle **multiple** selected items, joined by newlines.
 
 ## Installation 🚀
 
-> **Warning**
->
-> Don't double-click the `.workflow` files to install them. Double-clicking
+> [!WARNING]
+> **Don't double-click the `.workflow` files to install them.** Double-clicking
 > installs the action, but it _moves_ the file out of this folder into
 > `~/Library/Services/`, so the copy in your project disappears - and if you
 > later `git pull` and reinstall, you have no local source to copy from. Always
