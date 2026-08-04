@@ -24,8 +24,8 @@ All three handle **multiple** selected items, joined by newlines.
 **Clone and copy:**
 
 ```bash
-git clone https://github.com/NikolaRHristov/Quick-Actions.git
-cd Quick-Actions
+git clone https://github.com/NikolaRHristov/QuickActions.git
+cd QuickActions
 
 cp -R "Copy Path.workflow" \
       "Copy Path (Quoted).workflow" \
