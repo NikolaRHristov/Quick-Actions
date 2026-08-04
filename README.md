@@ -23,6 +23,7 @@ them (`$@` / stdin paths), so they work for anyone on any Mac.
 </p>
 
 > [!NOTE]
+>
 > The actions copy the _path_ - not the file contents. Great for pasting into a
 > terminal, a chat, or a document without dragging a file around.
 
@@ -39,6 +40,7 @@ All three handle **multiple** selected items, joined by newlines.
 ## Installation 🚀
 
 > [!WARNING]
+>
 > **Don't double-click the `.workflow` files to install them.** Double-clicking
 > installs the action, but it _moves_ the file out of this folder into
 > `~/Library/Services/`, so the copy in your project disappears - and if you
