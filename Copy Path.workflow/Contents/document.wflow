@@ -172,7 +172,7 @@
 				<key>isViewVisible</key>
 				<integer>1</integer>
 				<key>location</key>
-				<string>436.000000:184.000000</string>
+				<string>436.000000:305.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -216,7 +216,7 @@
 		<key>serviceProcessesInput</key>
 		<false/>
 		<key>systemImageName</key>
-		<string>NSActionTemplate</string>
+		<string>NSTouchBarDocuments</string>
 		<key>useAutomaticInputType</key>
 		<false/>
 		<key>workflowTypeIdentifier</key>
